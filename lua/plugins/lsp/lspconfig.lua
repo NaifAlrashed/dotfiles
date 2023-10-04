@@ -82,7 +82,7 @@ return {
     lspconfig['elixirls'].setup {
       capabilities = capabilities,
       on_attach = on_attach,
-      cmd = '/opt/homebrew/bin/elixir-ls',
+      cmd = { '/opt/homebrew/bin/elixir-ls' },
     }
 
     lspconfig['solargraph'].setup {
