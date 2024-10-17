@@ -20,6 +20,11 @@ return {
         'html',
         'graphql',
         'gopls',
+        'tsserver',
+        'templ',
+        'clangd',
+        'ols',
+        'terraformls',
       },
       automatic_installation = true,
     }

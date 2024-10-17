@@ -11,6 +11,16 @@ return {
         'swift',
         'elixir',
         'heex',
+        'graphql',
+        'go',
+        'gomod',
+        'gosum',
+        'templ',
+        'gleam',
+        'c',
+        'cmake',
+        'odin',
+        'terraform'
       },
       sync_install = true,
       highlight = {

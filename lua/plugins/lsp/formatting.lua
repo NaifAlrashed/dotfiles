@@ -10,6 +10,10 @@ return {
         zig = { 'zigfmt' },
         ruby = { 'rubocop' },
         rust = { 'rustfmt' },
+        javascript = { 'prettierd', 'prettier' },
+        go = { 'gofumpt' },
+        swift = { 'swiftFormat' },
+        csharp = { 'csharpier' },
       },
 
       format_on_save = {

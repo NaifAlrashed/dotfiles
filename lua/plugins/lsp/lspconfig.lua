@@ -13,7 +13,9 @@ return {
   },
   config = function()
     local lspconfig = require('lspconfig')
+    local configs = require('lspconfig.configs')
     local cmp_nvim_lsp = require('cmp_nvim_lsp')
+    local util = require("lspconfig.util")
     local keymap = vim.keymap
 
     local opts = { noremap = true, silent = true }
@@ -61,6 +63,20 @@ return {
       on_attach = on_attach,
     }
 
+    configs.templ = {
+      default_config = {
+        cmd = { "templ", "lsp", },
+        filetypes = { "templ" },
+        root_dir = util.root_pattern("go.mod", ".git"),
+        settings = {},
+      }
+    }
+
+    lspconfig['templ'].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    }
+
     lspconfig['lua_ls'].setup {
       capabilities = capabilities,
       on_attach = on_attach,
@@ -93,6 +109,7 @@ return {
     lspconfig['tailwindcss'].setup {
       capabilities = capabilities,
       on_attach = on_attach,
+      filetypes = { "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure", "django-html", "htmldjango", "edge", "eelixir", "elixir", "ejs", "erb", "eruby", "gohtml", "gohtmltmpl", "haml", "handlebars", "hbs", "html", "html-eex", "heex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte", "templ", "swift" }
     }
 
     lspconfig['zls'].setup {
@@ -106,6 +123,45 @@ return {
     }
 
     lspconfig['gopls'].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        gopls = {
+          gofumpt = true
+        }
+      }
+    }
+
+    lspconfig['tsserver'].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    }
+
+    lspconfig['gleam'].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    }
+
+    lspconfig.sourcekit.setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      root_dir = lspconfig.util.root_pattern(
+        '.git',
+        'Package.swift'
+      ),
+    }
+
+    lspconfig['clangd'].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    }
+
+    lspconfig['ols'].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    }
+
+    lspconfig['terraformls'].setup {
       capabilities = capabilities,
       on_attach = on_attach,
     }
