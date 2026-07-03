@@ -1,9 +1,6 @@
-return {
-  "ellisonleao/gruvbox.nvim",
-  priority = 1000,
-  config = function()
-    vim.o.background = "dark" -- or "light" for light mode
-    vim.cmd([[colorscheme gruvbox]])
-    require("gruvbox").setup()
-  end,
-}
+vim.pack.add({
+  { src = 'https://github.com/ellisonleao/gruvbox.nvim' }
+})
+require('gruvbox').setup()
+vim.o.background = 'dark'
+vim.cmd([[colorscheme gruvbox]])
